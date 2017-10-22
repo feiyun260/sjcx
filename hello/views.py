@@ -5,7 +5,7 @@ from django.shortcuts import render
 # from django.template import loader,Context,Template
 # from django.http import HttpResponse
 from .models import *
-# import datetime
+import datetime
 # from pure_pagination import Paginator, EmptyPage, PageNotAnInteger
 # from django.views.decorators import csrf
 
