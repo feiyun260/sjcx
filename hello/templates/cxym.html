@@ -5,13 +5,17 @@
     <title></title>
 </head>
 <body>
+<h1>验证码查询</h1>
 
-<div>{% for i in uname %}
-    {{ i.id.ccuscode.ccusname }}
-{#    {% for x in i.customer_set.filter %}#}
+<form action="" method="post">
+    {% csrf_token %}
+    <input type="text" name="yhid">
+    <input type="submit" value="查询">
+</form>
+    <p>验证码为：{% for i in yzm %}
+        {{ i.cverificationcode }}
+    {% endfor %}</p>
 
-{% endfor %}
-</div>
 
 </body>
 

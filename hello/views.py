@@ -7,14 +7,18 @@ from django.http import HttpResponse
 from .models import *
 import datetime
 from pure_pagination import Paginator, EmptyPage, PageNotAnInteger
-
+from django.views.decorators import csrf
 
 # Create your views here.
 
 def cxym(request):
-    yyst = YyServiceitems.objects.filter()[:10]
+    yhid=''
+    if request.POST:
+        yhid= request.POST['yhid']
+    yzm = YyServiceitems.objects.filter(id__ccuscode=yhid) or '未查询到结果'
+    return render(request,'cxym.html',{'yzm':yzm})
 
-    return render(request,'cxym.html',{'uname':yyst})
+
 
 def index1(req):
     t = Template('<h1>hello {{uname}}</h1>')

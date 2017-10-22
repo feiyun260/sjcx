@@ -87,7 +87,7 @@ DATABASES = {
     # },
     'default'  : {
         'ENGINE'  : 'sql_server.pyodbc',
-        'NAME'    : 'CXXT',
+        'NAME'    : 'UFDATA_001_2016',
         'USER'    : 'xzj',
         'PASSWORD': 'xZJ1986519',
         'HOST'    : '118.178.120.182',
