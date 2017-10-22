@@ -19,7 +19,7 @@ from hello.views import *
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', index),
+    # url(r'^$', index),
     url(r'^cxym/',cxym),
     # url(r'^index2/$',index2),
 ]
