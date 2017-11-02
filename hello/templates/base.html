@@ -1,10 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "bootstrap4/bootstrap4.html" %}
 
-</body>
-</html>
+{% block bootstrap4_extra_head %}
+    <title>{% block title %}数据查询{% endblock %}</title>
+{% endblock %}
+{% block bootstrap4_before_content %}
+    {% block before_content %}{% endblock %}
+{% endblock %}
+{% block bootstrap4_content %}
+   {% block content %} CONTENT {% endblock %}
+{% endblock %}
+{% block bootstrap4_after_content %}
+
+{% endblock %}
+{% block bootstrap4_extra_script %}{% endblock %}

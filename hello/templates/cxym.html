@@ -1,22 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
-<h1>验证码查询</h1>
+{% extends "base.html" %}
+{#{% load bootstrap4 %}#}
+{% block title %}验证码查询{% endblock %}
 
-<form action="" method="post">
-    {% csrf_token %}
-    <input type="text" name="yhid">
-    <input type="submit" value="查询">
-</form>
-    <p>验证码为：{% for i in yzm %}
-        {{ i.cverificationcode }}
-    {% endfor %}</p>
+{% block content %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class=" col-sm-12 text-center">
+                <h1>验证码查询</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-offset-2 col-sm-4">
+                <form class="form-inline" action="" method="post">
+                    {% csrf_token %}
+                    <input class='form-control center-block' type="text" name="yhid" placeholder="客户编号" required>
+                    <input class="btn btn-info center-block" type="submit" value="查询">
+
+                </form>
+
+            </div>
+            <div class="col-sm-6">
+            <div class="well">
+             <h2 class="text-info text-left">验证码为：{% for i in yzm %}
+                    {{ i.cverificationcode }}
+                {% endfor %}</h2></div></div>
+        </div>
+    </div>
 
 
-</body>
 
-</html>
+{% endblock %}
