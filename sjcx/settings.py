@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'hello',
     'pure_pagination',
+    'bootstrap4'
 ]
 
 MIDDLEWARE = [
@@ -55,11 +56,11 @@ ROOT_URLCONF = 'sjcx.urls'
 
 TEMPLATES = [
     {
-        'BACKEND' : 'django.template.backends.django.DjangoTemplates',
-        'DIRS'    : [os.path.join(BASE_DIR, 'templates')]
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [os.path.join(BASE_DIR, 'templates')]
         ,
         'APP_DIRS': True,
-        'OPTIONS' : {
+        'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
@@ -85,14 +86,18 @@ DATABASES = {
     #     'ENGINE': 'django.db.backends.sqlite3',
     #     'NAME'  : os.path.join(BASE_DIR, 'db.sqlite3'),
     # },
-    'default'  : {
-        'ENGINE'  : 'sql_server.pyodbc',
-        'NAME'    : 'UFDATA_001_2016',
-        'USER'    : 'xzj',
+    'default': {
+        'ENGINE': 'sql_server.pyodbc',
+        'NAME': 'UFDATA_001_2016',
+        'USER': 'xzj',
         'PASSWORD': 'xZJ1986519',
-        'HOST'    : '118.178.120.182',
-        # 'PORT'    : '1433'
-    }
+        'HOST': '118.178.120.182',
+        'PORT': '1433',
+        'OPTIONS': {
+                'dsn': 'U8',
+        },
+
+}
 }
 
 # Password validation

@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 from django.shortcuts import render
-# from django.shortcuts import render_to_response
-# from django.http import HttpResponse
-# from django.template import loader,Context,Template
-# from django.http import HttpResponse
+from django.shortcuts import render_to_response
+from django.http import HttpResponse
+from django.template import loader,Context,Template
+from django.http import HttpResponse
 from .models import *
 import datetime
-# from pure_pagination import Paginator, EmptyPage, PageNotAnInteger
-# from django.views.decorators import csrf
+from pure_pagination import Paginator, EmptyPage, PageNotAnInteger
+from .forms import *
 
 # Create your views here.
 
@@ -20,24 +20,23 @@ def cxym(request):
 
 
 
-# def index1(req):
-#     t = Template('<h1>hello {{uname}}</h1>')
-#     c = Context({'uname':'loss'})
-#     return HttpResponse(t.render(c))
+def index1(req):
+    form = ContactForm()
+    return render(req,'index1.html',{'form':form})
 #
-# def index(request):
-#     start_date = datetime.date(2017, 8, 30)
-#     end_date = datetime.datetime.now()
-#     yyst = YyServiceitems.objects.filter(id__ddate__range=(start_date,end_date))
-#     try:
-#         page = int(request.GET.get('page', 1))  # 页码
-#         paginator = Paginator(yyst, 12, request=request)  # 获取有多少页
-#         article_list = paginator.page(page)  # 获取指定页的数据
-#     except Exception as e:
-#         return HttpResponseRedirect('/')
-#
-#     return render_to_response('index.html', {'uname':article_list,'page_obj': article_list})
-#
+def index(request):
+    start_date = datetime.date(2017, 8, 30)
+    end_date = datetime.datetime.now()
+    yyst = YyServiceitems.objects.filter(id__ddate__range=(start_date,end_date))
+    try:
+        page = int(request.GET.get('page', 1))  # 页码
+        paginator = Paginator(yyst, 12, request=request)  # 获取有多少页
+        article_list = paginator.page(page)  # 获取指定页的数据
+    except Exception as e:
+        return HttpResponseRedirect('/')
+
+    return render_to_response('index.html', {'uname':article_list,'page_obj': article_list})
+
 #
 #
 # def tong_ji(request):
