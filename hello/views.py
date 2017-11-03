@@ -15,7 +15,12 @@ def cxym(request):
     yhid=''
     if request.POST:
         yhid= request.POST['yhid']
-    yzm = YyServiceitems.objects.filter(id__ccuscode=yhid) or '未查询到结果'
+    yzms = YyServiceitems.objects.filter(id__ccuscode=yhid)
+    yzm = '未查询到'
+    for i in yzms:
+        if i:
+            yzm = i.cverificationcode
+
     return render(request,'cxym.html',{'yzm':yzm})
 
 

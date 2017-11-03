@@ -1,15 +1,24 @@
-{% extends "bootstrap4/bootstrap4.html" %}
-
-{% block bootstrap4_extra_head %}
-    <title>{% block title %}数据查询{% endblock %}</title>
-{% endblock %}
-{% block bootstrap4_before_content %}
-    {% block before_content %}{% endblock %}
-{% endblock %}
-{% block bootstrap4_content %}
-   {% block content %} CONTENT {% endblock %}
-{% endblock %}
-{% block bootstrap4_after_content %}
-
-{% endblock %}
-{% block bootstrap4_extra_script %}{% endblock %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>{% block title %}{% endblock %}</title>
+        <!--用百度的静态资源库的cdn安装bootstrap环境-->
+        <!-- Bootstrap 核心 CSS 文件 -->
+        <link href="http://apps.bdimg.com/libs/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+        <!--font-awesome 核心我CSS 文件-->
+        <link href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+        <!-- 在bootstrap.min.js 之前引入 -->
+        <script src="http://apps.bdimg.com/libs/jquery/2.0.0/jquery.min.js"></script>
+        <!-- Bootstrap 核心 JavaScript 文件 -->
+        <script src="http://apps.bdimg.com/libs/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+        <!--jquery.validate-->
+        <script type="text/javascript" src="js/jquery.validate.min.js" ></script>
+        <script type="text/javascript" src="js/login.js" ></script>
+        {% block head %}<link rel="stylesheet" href="css/style.css">{% endblock %}
+    </head>
+    <body>
+       {% block body %}{% endblock %}
+    {% block body_js %}<script type="text/javascript" src="js/main.js" ></script>{% endblock %}
+    </body>
+</html>
