@@ -1,0 +1,74 @@
+body, html {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    color: #cccccc;
+    background: url(../img/4.jpg);
+}
+
+table {
+    /*height: 80%;*/
+    width: 80%; /*  必须设置一个宽度， margin: 0 auto才能使之居于父组件中央*/
+    margin: 1em auto; /*  通过设置外边距（margin）中的左右外边距属性为auto使之居于父组件（body）中间*/
+}
+
+table tr {
+    height: 40px;
+    width: 100%;
+    background-color: red;
+}
+
+table > tr > td {
+    height: 100%;
+    width: 33.3%;
+    background-color: red;
+}
+
+table.altrowstable {
+    font-family: verdana, arial, sans-serif;
+    font-size: 11px;
+    color: #333333;
+    border-width: 1px;
+    border-color: #a9c6c9;
+    border-collapse: collapse;
+}
+
+table.altrowstable th {
+    border-width: 1px;
+    padding: 8px;
+    border-style: solid;
+    border-color: #a9c6c9;
+}
+
+table.altrowstable td {
+    border-width: 1px;
+    padding: 8px;
+    border-style: solid;
+    border-color: #a9c6c9;
+}
+
+.ssnr{
+    height: 80%;
+    width: 80%; /*  必须设置一个宽度， margin: 0 auto才能使之居于父组件中央*/
+    margin:1em auto;
+}
+
+
+.oddrowcolor {
+    background-color: #d4e3e5;
+}
+
+.evenrowcolor {
+    background-color: #c3dde0;
+}
+
+.pagelist {
+    width: 80%;
+    margin: 10px auto;
+}
+
+.plist {
+
+    float: left;
+}

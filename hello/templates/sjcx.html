@@ -1,0 +1,125 @@
+{% extends "base.html" %}
+{% load static %}
+{% block head %}
+    <link rel="stylesheet" href="{% static "css/index.css" %}">
+{% endblock %}
+{% block body %}
+    <div class="container-fluid">
+        <div class="col-sm-12 col-md-12">
+            <h1 class="form-title text-center">数据查询</h1>
+        </div>
+        <form class="form-horizontal " method="post">
+            <div class="form-inline ssnr">
+                <div class="form-group">
+                    {#                        <i class="fa fa-user fa-lg"></i/>#}
+                    {% csrf_token %}
+                    <input class="form-control required" type="text" placeholder="用户ID" name="yhid"
+                           autofocus="autofocus"
+                           maxlength="10" required>
+                </div>
+                <div class="form-group">
+                    <input type="submit" class="btn btn-info btn-block" value="搜索"/>
+                </div>
+            </div>
+        </form>
+    </div>
+<table class="altrowstable">
+{#    <thead>#}
+{#    <tr class="oddrowcolor">#}
+{#        <td>序号</td>#}
+{#        <td>会员编号</td>#}
+{#        <td>会员姓名</td>#}
+{#        <td>订单编号</td>#}
+{#        <td>订单时间</td>#}
+{#        <td>所属系统</td>#}
+{#        <td>报单金额</td>#}
+{#        <td>是否验证</td>#}
+{#        <td>验证时间</td>#}
+{#        <td>验证店铺</td>#}
+{#        <td>项目名称</td>#}
+{#        <td>所属省份</td>#}
+{##}
+{##}
+{#    </tr>#}
+{#    </thead>#}
+{#/    {% for name in uname %}#}
+    <tr>
+{#        <td>{{ forloop.counter }}</td>#}
+        <td>{{ name.id.ccuscode_id }}</td>
+        <td>{{ name.id.cvouchcode }}</td>
+        <td>{{ name.id.ddate }}</td>
+        <td>{{ name.id.cdefine1 }}</td>
+        <td>{{ name.famount|floatformat }}</td>
+        <td>{{ name.cinvcode }}</td>
+        <td>{{ name.id.ccusoaddress }}</td>
+    </tr>
+{#    {% endfor %}#}
+{#        {% if forloop.counter|divisibleby:'2' %}#}
+{#            <tr class="oddrowcolor">#}
+{#                <td>{{ forloop.counter }}</td>#}
+{#                <td>{{ name.id.ccuscode_id }}</td>#}
+{#            {% if name.id.ccuscode.ccusname %}#}
+{#                <td>{{ name.id.ccuscode.ccusname }}</td>#}
+{#                {% else %}#}
+{#                <td>{{ name.id.ccontactname }}</td>#}
+{#                {% endif %}#}
+{#                <td>{{ name.id.cvouchcode }}</td>#}
+{#                <td>{{ name.id.ddate }}</td>#}
+{#                <td>{{ name.id.cdefine1 }}</td>#}
+{#                <td>{{ name.famount|floatformat }}</td>#}
+{#                {% if name.bsale %}#}
+{#                    <td>{{ name.bsale }}</td>#}
+{#                {% else %}#}
+{#                    <td></td>#}
+{#                {% endif %}#}
+{#                {% if name.submitdate %}#}
+{#                    <td>{{ name.submitdate }}</td>#}
+{#                {% else %}#}
+{#                    <td></td>#}
+{#                {% endif %}#}
+{#                {% if name.cshopcode %}#}
+{#                    <td>{{ name.cshopcode }}</td>#}
+{#                {% else %}#}
+{#                    <td></td>#}
+{#                {% endif %}#}
+{#                <td>{{ name.cinvcode }}</td>#}
+{#                <td>{{ name.id.ccusoaddress }}</td>#}
+{#            </tr>#}
+{#        {% else %}#}
+{#            <tr class="evenrowcolor">#}
+{#                <td>{{ forloop.counter }}</td>#}
+{#                <td>{{ name.id.ccuscode_id }}</td>#}
+{#                 {% if name.id.ccuscode.ccusname %}#}
+{#                <td>{{ name.id.ccuscode.ccusname }}</td>#}
+{#                {% else %}#}
+{#                <td>{{ name.id.ccontactname }}</td>#}
+{#                {% endif %}#}
+{#                <td>{{ name.id.cvouchcode }}</td>#}
+{#                <td>{{ name.id.ddate }}</td>#}
+{#                <td>{{ name.id.cdefine1 }}</td>#}
+{#                <td>{{ name.famount|floatformat }}</td>#}
+{#                {% if name.bsale %}#}
+{#                    <td>{{ name.bsale }}</td>#}
+{#                {% else %}#}
+{#                    <td></td>#}
+{#                {% endif %}#}
+{#                {% if name.submitdate %}#}
+{#                    <td>{{ name.submitdate }}</td>#}
+{#                {% else %}#}
+{#                    <td></td>#}
+{#                {% endif %}#}
+{#                {% if name.cshopcode %}#}
+{#                    <td>{{ name.cshopcode }}</td>#}
+{#                {% else %}#}
+{#                    <td></td>#}
+{#                {% endif %}#}
+{#                <td>{{ name.cinvcode }}</td>#}
+{#                <td>{{ name.id.ccusoaddress }}</td>#}
+{#            </tr>#}
+{#        {% endif %}#}
+{#    {% endfor %}#}
+</table>
+{#<nav class="pagelist">#}
+{#    {% include 'productlist.html' %}#}
+{#</nav>#}
+{% endblock %}

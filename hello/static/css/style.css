@@ -1,5 +1,5 @@
 body {
-    background: url(../img/112751f8bsbbx8rs9soihr.jpg) no-repeat;
+    background: url(../img/4.jpg) repeat;
     background-size: cover;
     font-size: 16px;
     color: #c3dde0;
@@ -7,12 +7,18 @@ body {
 
 .form {
     background: rgba(255, 255, 255, 0.2);
-    width: 400px;
-    margin: 100px auto;
+    /*width: 100%;*/
+    margin: 2em auto;
+}
+
+.yzm{
+    margin: 0 auto;
+
 }
 
 #login_form {
     display: block;
+    margin: 2em auto;
 }
 
 #register_form {
