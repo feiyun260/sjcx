@@ -57,7 +57,6 @@ def index(request):
         article_list = paginator.page(page)  # 获取指定页的数据
     except Exception as e:
         return HttpResponseRedirect('/')
-
     return render_to_response('index.html', {'uname':article_list,'page_obj': article_list})
 
 def index2(request):
