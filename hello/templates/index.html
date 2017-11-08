@@ -32,9 +32,9 @@
             </form>
         </div>
     </div>
-<table class="altrowstable">
+<table class="table table-striped table-bordered">
     <thead>
-    <tr class="oddrowcolor">
+    <tr>
         <td>序号</td>
         <td>会员编号</td>
         <td>会员姓名</td>
@@ -85,7 +85,7 @@
                 <td>{{ name.id.ccusoaddress }}</td>
             </tr>
         {% else %}
-            <tr class="evenrowcolor">
+            <tr>
                 <td>{{ forloop.counter }}</td>
                 <td>{{ name.id.ccuscode_id }}</td>
                  {% if name.id.ccuscode.ccusname %}
@@ -118,7 +118,7 @@
         {% endif %}
     {% endfor %}
 </table>
-<nav class="pagelist">
+<nav class="pagination-lg">
     {% include 'productlist.html' %}
 </nav>
 {% endblock %}
