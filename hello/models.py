@@ -12,7 +12,7 @@ from django.db import models
 
 class Customer(models.Model):
     ccuscode = models.CharField(db_column='cCusCode', primary_key=True, max_length=20)  # 会员编号
-    ccusname = models.CharField(db_column='cCusName', max_length=98, blank=True, null=True)  # 还原姓名
+    ccusname = models.CharField(db_column='cCusName', max_length=98, blank=True, null=True)  # 会员姓名
     ccusabbname = models.CharField(db_column='cCusAbbName', max_length=60)  # 会员编号姓名合并
 
     def __str__(self):

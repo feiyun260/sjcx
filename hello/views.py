@@ -3,7 +3,7 @@ from django.shortcuts import render
 from django.shortcuts import render_to_response
 from django.http import HttpResponse
 from django.template import loader,Context,Template
-from django.http import HttpResponse
+from django.http import HttpResponseRedirect
 from .models import *
 import datetime
 from pure_pagination import Paginator, EmptyPage, PageNotAnInteger
@@ -25,11 +25,47 @@ def cxym(request):
 
 
 
-def index1(req):
-    form = ContactForm()
-    return render(req,'index1.html',{'form':form})
+def index1(request):
+    yhid=''
+    if request.POST:
+        yhid = request.POST['yhid']
+    yyst = YyServiceitems.objects.filter(id__ccuscode=yhid)
+    yy = '未查询到'
+    for i in yyst:
+        if i:
+            yy = i
+            print(i)
+    return render(request,'fenye.html',{'name':yy})
+    # try:
+    #     page = int(request.GET.get('page', 1))  # 页码
+    #     paginator = Paginator(yyst, 12, request=request)  # 获取有多少页
+    #     article_list = paginator.page(page)  # 获取指定页的数据
+    # except Exception as e:
+    #     return HttpResponseRedirect('/')
+    #
+    # return render_to_response('index.html', {'uname':article_list,'page_obj': article_list})
+
 #
 def index(request):
+    # yhid=''
+    start_date = datetime.date(2017, 8, 30)
+    closing_date = datetime.datetime.now()
+    if request.POST:
+        # yhid = request.POST['yhid']
+        start_date = request.POST['start_date']
+        print(start_date)
+        closing_date = request.POST['closing_date']
+        print(closing_date)
+    yyst = YyServiceitems.objects.filter(id__ddate__range=(start_date,closing_date)) #id__ccuscode=yhid,
+    try:
+        page = int(request.GET.get('page', 1))  # 页码
+        paginator = Paginator(yyst, 12, request=request)  # 获取有多少页
+        article_list = paginator.page(page)  # 获取指定页的数据
+    except Exception as e:
+        return HttpResponseRedirect('/')
+    return render_to_response('index.html', {'uname':article_list,'page_obj': article_list})
+
+def index2(request):
     start_date = datetime.date(2017, 8, 30)
     end_date = datetime.datetime.now()
     yyst = YyServiceitems.objects.filter(id__ddate__range=(start_date,end_date))

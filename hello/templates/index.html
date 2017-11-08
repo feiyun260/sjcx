@@ -1,89 +1,45 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>查询系统</title>
-    <style type="text/css">
-        body, html {
-            height: 100%;
-            width: 100%;
-            margin: 0;
-            padding: 0;
-        }
-
-        table {
-            height: 80%;
-            width: 80%; /*  必须设置一个宽度， margin: 0 auto才能使之居于父组件中央*/
-            margin: 10px auto; /*  通过设置外边距（margin）中的左右外边距属性为auto使之居于父组件（body）中间*/
-        }
-
-        table tr {
-            height: 40px;
-            width: 100%;
-            background-color: red;
-        }
-
-        table > tr > td {
-            height: 100%;
-            width: 33.3%;
-            background-color: red;
-        }
-
-        table.altrowstable {
-            font-family: verdana, arial, sans-serif;
-            font-size: 11px;
-            color: #333333;
-            border-width: 1px;
-            border-color: #a9c6c9;
-            border-collapse: collapse;
-        }
-
-        table.altrowstable th {
-            border-width: 1px;
-            padding: 8px;
-            border-style: solid;
-            border-color: #a9c6c9;
-        }
-
-        table.altrowstable td {
-            border-width: 1px;
-            padding: 8px;
-            border-style: solid;
-            border-color: #a9c6c9;
-        }
-
-        .oddrowcolor {
-            background-color: #d4e3e5;
-        }
-
-        .evenrowcolor {
-            background-color: #c3dde0;
-        }
-
-        .pagelist {
-            width: 80%;
-            margin: 10px auto;
-        }
-
-        .plist {
-
-            float: left;
-        }
-    </style>
-</head>
-<body>
-
+{% extends "base.html" %}
+{% load static %}
+{% block head %}
+    <link rel="stylesheet" href="{% static "css/index.css" %}">
+{% endblock %}
+{% block body %}
+    <div class="container-fluid">
+        <div class="col-sm-12 col-md-12">
+            <h1 class="form-title text-center">数据查询</h1>
+        </div>
+        <div class="col-sm-12 ">
+            <form class="form-inline ssnr" method="post" action="">
+                <div class="col-sm-12 col-md-12 ">
+{#                    {% csrf_token %}#}
+                    <div class="form-group">
+                        <input class="form-control" type="text" placeholder="用户ID" name="yhid"
+                               autofocus="autofocus"
+                               maxlength="10">
+                    </div>
+                    <div class="form-group text-right">开始日期：</div>
+                    <div class="form-group text-right">
+                        <input class="form-control" type="date" name="start_date" />
+                    </div>
+                    <div class="form-group text-right">结束日期：</div>
+                    <div class="form-group text-right">
+                        <input class="form-control" type="date" name="closing_date" />
+                    </div>
+                    <div class="form-group text-right">
+                        <input type="submit" class="btn btn-info text-right" value="搜索"/>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
 <table class="altrowstable">
-    <caption>
-        月份报表
-    </caption>
     <thead>
     <tr class="oddrowcolor">
         <td>序号</td>
         <td>会员编号</td>
         <td>会员姓名</td>
         <td>订单编号</td>
-        <td>订单时间</td>
+        <td>报单时间</td>
         <td>所属系统</td>
         <td>报单金额</td>
         <td>是否验证</td>
@@ -165,5 +121,4 @@
 <nav class="pagelist">
     {% include 'productlist.html' %}
 </nav>
-</body>
-</html>
+{% endblock %}
