@@ -10,13 +10,20 @@
         </div>
         <div class="col-sm-12 ">
             <form class="form-inline ssnr" method="post" action="">
-                <div class="col-sm-4 col-md-4 ">
+                <div class="col-sm-12 col-md-12 ">
+{#                    {% csrf_token %}#}
                     <div class="form-group">
-                        {#                        <i class="fa fa-user fa-lg"></i/>#}
-                        {% csrf_token %}
-                        <input class="form-control required" type="text" placeholder="用户ID" name="yhid"
+                        <input class="form-control" type="text" placeholder="用户ID" name="yhid"
                                autofocus="autofocus"
-                               maxlength="10" required>
+                               maxlength="10">
+                    </div>
+                    <div class="form-group text-right">开始日期：</div>
+                    <div class="form-group text-right">
+                        <input class="form-control" type="date" name="start_date" />
+                    </div>
+                    <div class="form-group text-right">结束日期：</div>
+                    <div class="form-group text-right">
+                        <input class="form-control" type="date" name="closing_date" />
                     </div>
                     <div class="form-group text-right">
                         <input type="submit" class="btn btn-info text-right" value="搜索"/>

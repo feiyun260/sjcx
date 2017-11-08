@@ -35,7 +35,7 @@ def index1(request):
         if i:
             yy = i
             print(i)
-    return render(request,'sjcx.html',{'name':yy})
+    return render(request,'fenye.html',{'name':yy})
     # try:
     #     page = int(request.GET.get('page', 1))  # 页码
     #     paginator = Paginator(yyst, 12, request=request)  # 获取有多少页
@@ -47,10 +47,16 @@ def index1(request):
 
 #
 def index(request):
-    yhid=''
+    # yhid=''
+    start_date = datetime.date(2017, 8, 30)
+    closing_date = datetime.datetime.now()
     if request.POST:
-        yhid = request.POST['yhid']
-    yyst = YyServiceitems.objects.filter(id__ccuscode=yhid)
+        # yhid = request.POST['yhid']
+        start_date = request.POST['start_date']
+        print(start_date)
+        closing_date = request.POST['closing_date']
+        print(closing_date)
+    yyst = YyServiceitems.objects.filter(id__ddate__range=(start_date,closing_date)) #id__ccuscode=yhid,
     try:
         page = int(request.GET.get('page', 1))  # 页码
         paginator = Paginator(yyst, 12, request=request)  # 获取有多少页
